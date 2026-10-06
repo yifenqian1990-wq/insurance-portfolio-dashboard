@@ -21,20 +21,7 @@ import { apiKeyManager } from './services/apiKeyManager';
 
 type Tab = 'dashboard' | 'documents' | 'members' | 'notes' | 'assistant' | 'archive' | 'audit';
 
-const DEFAULT_NOTES: Note[] = [
-  { 
-      id: '1', 
-      content: '记得给王苡苒的少儿医保续费，截止日期是8月7日。', 
-      color: 'bg-yellow-50 border-yellow-200 text-yellow-900', 
-      date: '2025-05-10' 
-  },
-  { 
-      id: '2', 
-      content: '咨询一下人保健康，关于悠福保A款的免赔额具体是如何计算的，是否包含门诊费用。', 
-      color: 'bg-blue-50 border-blue-200 text-blue-900', 
-      date: '2025-06-15' 
-  }
-];
+const DEFAULT_NOTES: Note[] = [];
 
 // Helper to generate a readable diff string between two policies
 const generatePolicyDiff = (oldP: Policy, newP: Policy): string => {

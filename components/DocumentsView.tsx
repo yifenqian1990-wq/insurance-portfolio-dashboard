@@ -107,7 +107,7 @@ const DocumentsView: React.FC<DocumentsViewProps> = ({ policies, onDelete, onUpd
         <div class="section-title">人员信息</div>
         <div class="grid">
             <div class="row"><span class="label">主被保险人</span><span class="value">${policy.insuredPerson}</span></div>
-            <div class="row"><span class="label">投保人</span><span class="value">王成</span></div>
+            <div class="row"><span class="label">投保人</span><span class="value">${policy.insuredPerson}</span></div>
         </div>
         ${otherInsuredHtml ? `<div style="margin-top: 10px;">${otherInsuredHtml}</div>` : ''}
     </div>

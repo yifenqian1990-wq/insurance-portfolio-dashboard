@@ -145,7 +145,7 @@ const FilePreviewModal: React.FC<FilePreviewModalProps> = ({ policy, isOpen, onC
                         <User className="w-4 h-4 text-slate-400" />
                         <span className="text-xs font-bold text-slate-500">投保人</span>
                       </div>
-                      <p className="font-bold text-slate-800">王成</p>
+                      <p className="font-bold text-slate-800">{policy.insuredPerson}</p>
                    </div>
                    <div className="p-4 border border-slate-200 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">

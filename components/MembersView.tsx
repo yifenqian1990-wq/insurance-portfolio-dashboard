@@ -75,25 +75,23 @@ const MembersView: React.FC<MembersViewProps> = ({ policies }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {members.map((member) => {
+        {members.map((member, idx) => {
            const premiumShare = totalHouseholdPremium > 0 ? ((member.totalPremium / totalHouseholdPremium) * 100).toFixed(1) : '0.0';
+           const palette = ['bg-blue-500', 'bg-rose-400', 'bg-purple-500', 'bg-emerald-500', 'bg-amber-500'];
+           const avatarColor = palette[[...member.name].reduce((a, c) => a + c.charCodeAt(0), 0) % palette.length];
 
            return (
             <div key={member.name} className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col">
                {/* Member Card Header */}
                <div className="p-6 border-b border-slate-50 bg-gradient-to-br from-slate-50/50 to-white flex items-start justify-between">
                   <div className="flex items-center gap-4">
-                      <div className={`w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-sm shrink-0 ${
-                          member.name === '王成' ? 'bg-blue-500' : 
-                          member.name === '王苡苒' ? 'bg-rose-400' : 
-                          member.name === '代如霜' ? 'bg-purple-500' : 'bg-emerald-500'
-                      }`}>
+                      <div className={`w-14 h-14 rounded-full flex items-center justify-center text-xl font-bold text-white shadow-sm shrink-0 ${avatarColor}`}>
                           {member.name.charAt(0)}
                       </div>
                       <div>
                           <div className="flex items-center gap-2">
                             <h3 className="text-lg font-bold text-slate-800">{member.name}</h3>
-                            {member.name === '王成' && <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded-full font-medium">投保人</span>}
+                            {idx === 0 && <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] rounded-full font-medium">投保人</span>}
                           </div>
                           <div className="flex flex-wrap gap-1.5 mt-2">
                               {Array.from(member.categories).map(cat => (
